@@ -1,0 +1,55 @@
+// ===== NAVBAR + UX =====
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("menuToggle");
+  const navbar = document.getElementById("navbar");
+
+  // ===== TOGGLE MENU =====
+  if (toggle && navbar) {
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent immediate close
+      navbar.classList.toggle("active");
+    });
+
+    // ===== CLOSE WHEN CLICK LINK =====
+    document.querySelectorAll(".navbar a").forEach(link => {
+      link.addEventListener("click", () => {
+        navbar.classList.remove("active");
+      });
+    });
+
+    // ===== CLOSE WHEN CLICK OUTSIDE =====
+    document.addEventListener("click", (e) => {
+      if (!navbar.contains(e.target) && !toggle.contains(e.target)) {
+        navbar.classList.remove("active");
+      }
+    });
+  }
+
+  // ===== ENTER KEY (AI INPUT) =====
+  const input = document.getElementById("userInput");
+  if (input) {
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (typeof sendMessage === "function") {
+          sendMessage();
+        }
+      }
+    });
+  }
+
+  // ===== SCROLL REVEAL =====
+  const cards = document.querySelectorAll(".card");
+
+  function reveal() {
+    cards.forEach(card => {
+      const top = card.getBoundingClientRect().top;
+      if (top < window.innerHeight - 60) {
+        card.classList.add("show");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", reveal);
+  reveal();
+});

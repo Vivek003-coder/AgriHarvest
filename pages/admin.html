@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | AgriHarvest</title>
+
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar">
+            <h2>🌾 AgriAdmin</h2>
+
+            <ul>
+                <li class="active">Dashboard</li>
+                <li>Users</li>
+                <li>Products</li>
+                <li>Analytics</li>
+                <li>Settings</li>
+                <li id="logoutBtn">Logout</li>
+            </ul>
+        </aside>
+
+        <!-- ===== MAIN ===== -->
+        <main class="main">
+
+            <!-- TOPBAR -->
+            <div class="topbar">
+                <h1>Dashboard</h1>
+                <div class="admin-info">
+                    <img src="https://i.pravatar.cc/40" alt="">
+                    <span id="adminName">Admin</span>
+                </div>
+            </div>
+
+            <!-- CARDS -->
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <p id="usersCount">120</p>
+                </div>
+
+                <div class="card">
+                    <h3>Products</h3>
+                    <p>45</p>
+                </div>
+
+                <div class="card">
+                    <h3>Orders</h3>
+                    <p>89</p>
+                </div>
+
+                <div class="card">
+                    <h3>Revenue</h3>
+                    <p>₹25,000</p>
+                </div>
+
+            </div>
+
+            <!-- TABLE -->
+            <div class="table-box">
+                <h2>Recent Users</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="userTable">
+                        <tr>
+                            <td>Rahul</td>
+                            <td>Active</td>
+                            <td>User</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+
+</body>
+
+</html>

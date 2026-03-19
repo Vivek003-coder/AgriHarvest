@@ -1,0 +1,76 @@
+.page-section{
+  padding:4rem 1.5rem;
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+}
+
+.page-section h1{
+  color:#2e7d32;
+  margin-bottom:1rem;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:2rem;
+  margin-top:2rem;
+}
+
+.product-card{
+  background:#fff;
+  padding:1.5rem;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:.3s;
+}
+
+.product-card:hover{
+  transform:translateY(-8px);
+}
+
+/* ===== AI CHAT ===== */
+.ai-box{
+  max-width:600px;
+  margin:30px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.chat-messages{
+  height:220px;
+  overflow-y:auto;
+  border:1px solid #eee;
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:12px;
+  text-align:left;
+}
+
+.msg-user{
+  background:#e8f5e9;
+  padding:8px 12px;
+  border-radius:8px;
+  margin:6px 0;
+}
+
+.msg-bot{
+  background:#fff8e1;
+  padding:8px 12px;
+  border-radius:8px;
+  margin:6px 0;
+}
+
+.chat-controls{
+  display:flex;
+  gap:8px;
+}
+
+.chat-controls input{
+  flex:1;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriHarvest | Smart Crop Advisory</title>
+
+  <meta name="description" content="AI-powered multilingual crop advisory system for farmers.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+
+  <!-- JS -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/ai.js" defer></script>
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="logo-text">🌾 AgriHarvest</div>
+
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="#ai">AI Advisor</a></li>
+        <li><a href="pages/marketplace.html">Market</a></li>
+        <li><a href="pages/fertilizer.html">Fertilizer</a></li>
+      </ul>
+    </nav>
+
+    <!-- RIGHT SIDE -->
+    <div class="nav-right">
+
+      <!-- 🔔 Notification -->
+      <div class="notif" id="notifBtn">
+        🔔
+        <span class="badge">3</span>
+
+        <div class="notif-dropdown" id="notifMenu">
+          <p>🌱 New crop tips</p>
+          <p>💰 Market updated</p>
+          <p>⚠ Weather alert</p>
+        </div>
+      </div>
+
+      <!-- AUTH -->
+      <div id="authArea"></div>
+
+    </div>
+
+    <!-- <div class="menu-toggle" id="menuToggle">☰</div> -->
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" style="background-image:url('assets/images/hero-farming-ai.jpg')">
+    <div class="hero-content">
+
+      <h1>AI-Powered Smart Crop Advisory</h1>
+
+      <p>
+        Personalized guidance for crop planning, fertilizers,
+        pest detection, and real-time mandi prices.
+      </p>
+
+      <div style="margin-top:22px;">
+        <a href="#ai" class="btn">Try AI</a>
+        <a href="pages/signup.html" class="btn btn-cta">Start Free</a>
+      </div>
+
+      <div style="margin-top:20px; font-size:.9rem; color:#555;">
+        🇮🇳 Built for Indian Farmers • 🌐 Multilingual • 🤖 AI Powered
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== PROBLEM ===== -->
+  <section class="page-section">
+    <h1>🚨 The Problem</h1>
+
+    <p style="max-width:900px;margin:auto;">
+      Farmers rely on guesswork for fertilizers and crop planning,
+      leading to low yield and high cost.
+    </p>
+
+    <!-- 🔥 FIX 2: ONLY ADD id + skeleton (NO STRUCTURE CHANGE) -->
+    <div class="cards" id="cardContainer">
+
+      <div class="card skeleton"></div>
+      <div class="card skeleton"></div>
+      <div class="card skeleton"></div>
+
+    </div>
+  </section>
+
+  <!-- ===== AI CHAT ===== -->
+  <section id="ai" class="page-section">
+    <h1>🤖 AI Crop Advisor</h1>
+
+    <div class="ai-box">
+      <div id="chatMessages" class="chat-messages"></div>
+
+      <div class="chat-controls">
+        <input type="text" id="userInput" placeholder="Ask about crops..." />
+        <button class="btn" onclick="sendMessage()">Ask</button>
+        <button class="btn btn-cta" onclick="startVoice()">🎤 Speak</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="page-section">
+    <h1>🚀 Start Smart Farming</h1>
+    <a href="pages/login.html" class="btn btn-cta">Get Started</a>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 AgriHarvest</p>
+  </footer>
+
+  <!-- 🔥 FIX 3: OVERLAY (ADDED ONLY) -->
+  <div id="overlay"></div>
+
+</body>
+
+</html>

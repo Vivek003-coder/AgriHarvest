@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile | AgriHarvest</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="profile-page">
+
+        <div class="profile-card">
+            <img id="profileImg" src="https://i.pravatar.cc/100" />
+
+            <h2 id="profileName">User</h2>
+            <p>Farmer | AgriHarvest Member</p>
+
+            <div class="profile-stats">
+                <div>
+                    <h3>12</h3>
+                    <span>Crops</span>
+                </div>
+                <div>
+                    <h3>5</h3>
+                    <span>Alerts</span>
+                </div>
+                <div>
+                    <h3>₹25K</h3>
+                    <span>Profit</span>
+                </div>
+            </div>
+
+            <button onclick="logout()" class="btn">Logout</button>
+        </div>
+
+    </div>
+
+    <script>
+        const user = localStorage.getItem("currentUser");
+        document.getElementById("profileName").innerText = user || "User";
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = "../index.html";
+        }
+    </script>
+
+</body>
+
+</html>
