@@ -9,8 +9,11 @@
   <!-- CSS -->
   <link rel="stylesheet" href="../assets/css/marketplace.css">
 
+  <!-- SOCKET -->
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
   <!-- JS -->
-  <script src="assets/js/marketplace.js" defer></script>
+  <script src="../assets/js/marketplace.js" defer></script>
 </head>
 
 <body>
@@ -23,28 +26,34 @@
     <nav class="navbar" id="navbar">
       <ul>
         <li><a href="../index.html">Home</a></li>
-        <li><a href="../index.html#ai">AI Advisor</a></li>
+        <li><a href="../index.html#about">About</a></li>
         <li><a href="marketplace.html" class="active">Market</a></li>
-        <li><a href="../pages/fertilizer.html">Fertilizer</a></li>
+        <li><a href="fertilizer.html">Fertilizer</a></li>
       </ul>
     </nav>
 
     <!-- RIGHT SIDE -->
     <div class="nav-right">
 
-      <!-- 🔔 Notification -->
-      <div class="notif" id="notifBtn">
-        🔔
-        <span class="badge">3</span>
+      <!-- 🔔 NOTIFICATION -->
+      <!-- <div class="notif" id="notifBtn"> -->
+        <!-- 🔔 -->
+        <!-- <span class="badge" id="notifCount">3</span> -->
 
-        <div class="notif-dropdown" id="notifMenu">
-          <p>🌾 New product added</p>
-          <p>📦 Order shipped</p>
-          <p>💰 Price updated</p>
-        </div>
-      </div>
+        <!-- <div class="notif-dropdown" id="notifMenu"> -->
+          <!-- <p>🌾 New product added</p> -->
+          <!-- <p>📦 Order shipped</p> -->
+          <!-- <p>💰 Price updated</p> -->
+        <!-- </div> -->
+      <!-- </div> -->
 
-      <!-- AUTH AREA -->
+      <!-- 🛒 CART -->
+      <!-- <div class="cart" id="cartBtn" title="Go to Cart"> -->
+        <!-- 🛒 -->
+        <!-- <span id="cartCount">0</span> -->
+      <!-- </div> -->
+
+      <!-- 👤 AUTH -->
       <div id="authArea"></div>
 
     </div>
@@ -52,6 +61,7 @@
     <div class="menu-toggle" id="menuToggle">☰</div>
 
   </header>
+
   <!-- ===== HERO ===== -->
   <section class="hero" style="background-image:url('../assets/images/marketplace-banner.jpg')">
     <div class="hero-content">
@@ -68,32 +78,30 @@
     <section id="products" class="products-section">
       <h2>Featured Products</h2>
 
-      <!-- 🔥 IMPORTANT FIX -->
       <div class="product-grid" id="productGrid">
 
-        <!-- fallback products -->
         <div class="product-card">
-          <img src="../assets/images/makhana.jpg" alt="Makhana">
+          <img src="../assets/images/makhana.jpg">
           <h3>Makhana</h3>
           <p>High-quality, locally sourced.</p>
           <p class="price">₹250/kg</p>
-          <a href="contact.html" class="btn">Buy Now</a>
+          <button class="btn buy-btn" data-name="Makhana" data-price="250">Buy Now</button>
         </div>
 
         <div class="product-card">
-          <img src="../assets/images/fertilizer.jpg" alt="Fertilizer">
+          <img src="../assets/images/fertilizer.jpg">
           <h3>Organic Fertilizer</h3>
           <p>Improve soil naturally.</p>
           <p class="price">₹500/bag</p>
-          <a href="contact.html" class="btn">Buy Now</a>
+          <button class="btn buy-btn" data-name="Fertilizer" data-price="500">Buy Now</button>
         </div>
 
         <div class="product-card">
-          <img src="../assets/images/vegetables.jpg" alt="Vegetables">
+          <img src="../assets/images/vegetables.jpg">
           <h3>Fresh Vegetables</h3>
           <p>Farm fresh delivery.</p>
           <p class="price">₹100/kg</p>
-          <a href="contact.html" class="btn">Buy Now</a>
+          <button class="btn buy-btn" data-name="Vegetables" data-price="100">Buy Now</button>
         </div>
 
       </div>
@@ -106,48 +114,85 @@
     <!-- ===== CTA ===== -->
     <section class="cta">
       <h2>Join AgriHarvest Marketplace Today!</h2>
-      <a href="contact.html" class="btn btn-cta">Get Started</a>
+      <a href="signup.html" class="btn btn-cta">Get Started</a>
     </section>
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="footer-content">
+  <footer class="footer">
 
-      <div class="footer-section">
-        <h4>Quick Links</h4>
-        <a href="../index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="marketplace.html">Marketplace</a>
-        <a href="../index.html#features">Features</a>
+    <div class="footer-top">
+      <a href="#">Back to top ↑</a>
+    </div>
+
+    <div class="footer-grid">
+      <div>
+        <h4>About</h4>
+        <a href="../index.html#about">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
       </div>
 
-      <div class="footer-section">
-        <h4>Contact</h4>
-        <p>📞 +91-9876543210</p>
-        <p>✉️ info@agriharvest.in</p>
+      <div>
+        <h4>Connect</h4>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
       </div>
 
-      <div class="footer-section">
-        <h4>Follow</h4>
-        <p>🌐 Social Links</p>
+      <div>
+        <h4>Earn</h4>
+        <a href="#">Sell Products</a>
+        <a href="#">Partnerships</a>
       </div>
 
+      <div>
+        <h4>Support</h4>
+        <a href="#">Account</a>
+        <a href="#">Returns</a>
+        <a href="#">Help</a>
+      </div>
+    </div>
+
+    <div class="footer-middle">
+      <div class="footer-logo">🌾 AgriHarvest</div>
+      <div class="footer-country">🌍 India</div>
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 AgriHarvest</p>
+      © 2025 AgriHarvest
     </div>
+
   </footer>
 
-  <!-- ===== JS ===== -->
+  <!-- ===== EXTRA JS FIX ===== -->
   <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navbar = document.getElementById("navbar");
 
-    menuToggle.addEventListener("click", () => {
-      navbar.classList.toggle("active");
+    // MOBILE MENU
+    document.getElementById("menuToggle").onclick = () => {
+      document.getElementById("navbar").classList.toggle("active");
+    };
+
+    // CART CLICK
+    document.getElementById("cartBtn").onclick = () => {
+      window.location.href = "cart.html";
+    };
+
+    // BUY BUTTONS (clean system)
+    document.querySelectorAll(".buy-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const name = btn.dataset.name;
+        const price = Number(btn.dataset.price);
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({ name, price });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert("🛒 Added to cart!");
+      });
     });
+
   </script>
 
 </body>

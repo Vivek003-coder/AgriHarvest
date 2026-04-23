@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f4f7f4;
+}
+
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    gap: 30px;
+}
+
+/* CARD */
+.profile-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card img {
+    width: 90px;
+    border-radius: 50%;
+}
+
+.profile-card h2 {
+    margin: 10px 0 5px;
+}
+
+.sub {
+    color: gray;
+    font-size: 14px;
+}
+
+/* STATS */
+.profile-stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.profile-stats div {
+    text-align: center;
+}
+
+.profile-stats h3 {
+    margin: 0;
+    color: #2e7d32;
+}
+
+/* BUTTON */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #2e7d32;
+    color: white;
+    cursor: pointer;
+}
+
+.logout-btn {
+    background: #e53935;
+}
+
+/* ORDERS */
+.orders-section {
+    width: 100%;
+    max-width: 700px;
+}
+
+.orders-section h2 {
+    margin-bottom: 10px;
+}
+
+/* ORDER CARD */
+.order {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.order-items .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* EMPTY */
+.empty {
+    text-align: center;
+    color: gray;
+}

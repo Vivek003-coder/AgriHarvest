@@ -4,18 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile | AgriHarvest</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/profile.css">
+    <script src="../assets/js/auth.js"></script>
 </head>
 
 <body>
 
     <div class="profile-page">
 
+        <!-- PROFILE CARD -->
         <div class="profile-card">
-            <img id="profileImg" src="https://i.pravatar.cc/100" />
+
+            <img id="profileImg" src="" />
 
             <h2 id="profileName">User</h2>
-            <p>Farmer | AgriHarvest Member</p>
+            <p class="sub">Farmer | AgriHarvest Member</p>
 
             <div class="profile-stats">
                 <div>
@@ -23,28 +26,69 @@
                     <span>Crops</span>
                 </div>
                 <div>
-                    <h3>5</h3>
-                    <span>Alerts</span>
+                    <h3 id="orderCount">0</h3>
+                    <span>Orders</span>
                 </div>
                 <div>
-                    <h3>₹25K</h3>
-                    <span>Profit</span>
+                    <h3 id="totalSpent">₹0</h3>
+                    <span>Spent</span>
                 </div>
             </div>
 
-            <button onclick="logout()" class="btn">Logout</button>
+            <button onclick="logout()" class="btn logout-btn">Logout</button>
+
+        </div>
+
+        <!-- ORDERS SECTION -->
+        <div class="orders-section">
+            <h2>🛒 Your Orders</h2>
+            <div id="orders" class="orders"></div>
         </div>
 
     </div>
 
     <script>
+        protectPage(); // 🔐 block if not logged in
+
         const user = localStorage.getItem("currentUser");
         document.getElementById("profileName").innerText = user || "User";
 
-        function logout() {
-            localStorage.clear();
-            window.location.href = "../index.html";
+        // ===== LOAD ORDERS =====
+        let orders = JSON.parse(localStorage.getItem("orders")) || [];
+        const container = document.getElementById("orders");
+
+        let total = 0;
+
+        if (orders.length === 0) {
+            container.innerHTML = `<p class="empty">No orders yet 🧺</p>`;
+        } else {
+            orders.forEach(order => {
+                total += order.items.reduce((sum, i) => sum + i.price, 0);
+
+                container.innerHTML += `
+        <div class="order">
+        <div class="order-header">
+            <h3>Order #${order.id}</h3>
+            <span>${order.date}</span>
+        </div>
+
+        <div class="order-items">
+            ${order.items.map(i => `
+            <div class="item">
+                <span>${i.name}</span>
+                <span>₹${i.price}</span>
+            </div>
+            `).join("")}
+        </div>
+        </div>
+        `;
+            });
         }
+
+        // ===== UPDATE STATS =====
+        document.getElementById("orderCount").innerText = orders.length;
+        document.getElementById("totalSpent").innerText = "₹" + total;
+
     </script>
 
 </body>
