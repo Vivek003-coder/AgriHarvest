@@ -1,69 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup | AgriHarvest</title>
-
-    <link rel="stylesheet" href="../assets/css/login.css">
+  <meta charset="UTF-8">
+  <title>Signup | AgriHarvest</title>
+  <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 
 <body>
 
-    <div class="login-container">
+<div class="login-container">
+  <div class="login-card">
 
-        <div class="login-card">
+    <h2>🌾 Create Account</h2>
+    <p class="subtitle">Join AgriHarvest today</p>
 
-            <h2>🌾 Create Account</h2>
-            <p class="subtitle">Join AgriHarvest today</p>
+    <input type="text" id="newUser" placeholder="Username">
 
-            <input type="text" id="newUser" placeholder="Username" required>
-
-            <div class="password-box">
-                <input type="password" id="newPass" placeholder="Password" required>
-                <span onclick="togglePass()">👁</span>
-            </div>
-
-            <button onclick="signup()" class="btn">Sign Up</button>
-
-            <!-- 🔥 GOOGLE LOGIN -->
-            <div class="divider">OR</div>
-
-            <button class="google-btn" onclick="googleLogin()">
-                <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png">
-                Continue with Google
-            </button>
-
-            <p class="switch">
-                Already have account? <a href="login.html">Login</a>
-            </p>
-
-            <p id="msg" class="error"></p>
-
-        </div>
-
+    <div class="password-box">
+      <input type="password" id="newPass" placeholder="Password">
+      <span onclick="togglePass()">👁</span>
     </div>
 
-    <script src="../assets/js/auth.js"></script>
+    <button onclick="signup()" class="btn">Sign Up</button>
 
-    <script>
-        function togglePass() {
-            const pass = document.getElementById("newPass");
-            pass.type = pass.type === "password" ? "text" : "password";
-        }
+    <p class="switch">
+      Already have account? <a href="login.html">Login</a>
+    </p>
 
-        // 🔥 FAKE GOOGLE LOGIN (UI DEMO)
-        function googleLogin() {
-            const fakeUser = "google_user";
+    <p id="msg" class="error"></p>
 
-            localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem("currentUser", fakeUser);
+  </div>
+</div>
 
-            window.location.href = "../index.html";
-        }
-    </script>
+<script src="../assets/js/auth.js"></script>
+
+<script>
+function togglePass() {
+  const pass = document.getElementById("newPass");
+  pass.type = pass.type === "password" ? "text" : "password";
+}
+</script>
 
 </body>
-
 </html>

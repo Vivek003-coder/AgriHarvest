@@ -9,6 +9,9 @@
   --radius: 18px;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 
+  --glass: rgba(255, 255, 255, 0.15);
+  --blur: blur(10px);
+
   --font: 'Inter', sans-serif;
 }
 
@@ -24,7 +27,7 @@ body {
   color: #1f2933;
 }
 
-/* ================= HEADER (SAME AS ALL PAGES) ================= */
+/* ================= HEADER ================= */
 .header {
   position: sticky;
   top: 0;
@@ -37,14 +40,14 @@ body {
   padding: 1rem 2rem;
 
   background: linear-gradient(135deg, var(--green), var(--green-light));
-  color: white;
-
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* LOGO */
 .logo-text {
-  font-size: 1.8rem;
-  font-weight: 800;
+  font-size: 1.9rem;
+  font-weight: 900;
+  letter-spacing: 1px;
 }
 
 /* NAV */
@@ -59,9 +62,10 @@ body {
   text-decoration: none;
   font-weight: 600;
   position: relative;
+  transition: 0.3s;
 }
 
-/* underline */
+/* underline animation */
 .navbar a::after {
   content: "";
   position: absolute;
@@ -78,29 +82,84 @@ body {
   width: 100%;
 }
 
+/* RIGHT SIDE FIX */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* NOTIFICATION ICON */
+.notif {
+  position: relative;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* BADGE */
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* LOGIN BUTTON */
+.nav-btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* SIGNUP BUTTON */
+.nav-btn.signup {
+  background: var(--yellow);
+  color: #000;
+  border: none;
+}
+
+.nav-btn.signup:hover {
+  background: #fff176;
+}
+
+
 /* ================= BUTTON ================= */
 .btn {
   display: inline-block;
-  padding: 10px 18px;
-  border-radius: 25px;
+  padding: 10px 20px;
+  border-radius: 30px;
   background: linear-gradient(135deg, var(--green), var(--green-light));
   color: #fff;
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* CTA BUTTON */
+/* CTA */
 .btn-cta {
   background: var(--yellow);
   color: #000;
-  font-weight: 600;
-  transition: background 0.2s;
+  font-weight: 700;
 }
 
 .btn-cta:hover {
@@ -109,55 +168,171 @@ body {
 
 /* ================= HERO ================= */
 .fertilizer {
-  max-width: 700px;
+  max-width: 720px;
   margin: 4rem auto;
+
   background: var(--white);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 2.5rem 2rem;
+
+  padding: 2.8rem 2rem;
   text-align: center;
+
+  animation: fadeUp 0.7s ease;
 }
 
 .fertilizer h2 {
-  color: var(--green-dark);
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   color: var(--green);
 }
 
 .fertilizer p {
   margin: 15px 0;
   color: #555;
+  font-size: 1.05rem;
 }
 
-/* ================= AI SECTION ================= */
+/* ================= AI SECTION (PRO) ================= */
 .ai-section {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem;
+
+  background: linear-gradient(135deg, #f4f7f4, #e8f5e9);
 }
 
-/* AI CARD SAME STYLE */
+/* TITLE */
+.ai-section h2 {
+  font-size: 2rem;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.ai-section p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* ================= INPUT + BUTTON ================= */
+.ai-section input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  width: 260px;
+  margin-right: 10px;
+
+  transition: 0.3s;
+}
+
+.ai-section input:focus {
+  border-color: var(--green);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46,125,50,0.2);
+}
+
+/* BUTTON */
+.ai-section .btn {
+  padding: 12px 20px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ai-section .btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ================= AI CARD ================= */
 .ai-card {
-  margin-top: 20px;
-  background: #fff;
-  padding: 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  margin: 30px auto;
+  max-width: 500px;
+
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+
+  text-align: left;
+
+  animation: fadeUp 0.5s ease;
+  transition: 0.3s;
 }
 
+.ai-card:hover {
+  transform: translateY(-5px);
+}
+
+/* RESULT TEXT */
+.ai-card h3 {
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.ai-card p {
+  margin: 6px 0;
+}
+
+/* TIP BOX */
 .ai-tip {
-  margin-top: 10px;
+  margin-top: 12px;
   background: #e8f5e9;
-  padding: 10px;
-  border-radius: 8px;
-}
-
-/* PREVIEW */
-#preview img {
-  width: 200px;
+  padding: 12px;
   border-radius: 10px;
+  font-size: 0.95rem;
 }
 
-/* ================= CARDS (MATCH MARKETPLACE) ================= */
+/* ================= PREVIEW ================= */
+#preview {
+  margin-top: 20px;
+}
+
+#preview img {
+  width: 220px;
+  border-radius: 14px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+#preview img:hover {
+  transform: scale(1.05);
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+
+  .ai-section input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .ai-section .btn {
+    width: 100%;
+  }
+
+  .ai-card {
+    margin: 20px 10px;
+  }
+}
+
+/* ================= CARDS ================= */
 .fertilizer-cards {
   padding: 3rem 1.5rem;
   display: grid;
@@ -167,14 +342,16 @@ body {
 
 .card {
   background: #fff;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  transition: 0.3s;
+
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .card h3 {
@@ -192,7 +369,7 @@ body {
 /* ================= FOOTER ================= */
 .footer {
   background: #1e1e1e;
-  color: #fff;
+  color: #ccc;
   text-align: center;
   padding: 2rem 1rem;
 }
@@ -202,10 +379,13 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
+
   background: var(--green);
   color: white;
+
   padding: 12px 18px;
   border-radius: 10px;
+
   opacity: 0;
   transform: translateY(20px);
   transition: 0.4s;
@@ -214,6 +394,19 @@ body {
 .toast.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ================= MOBILE ================= */

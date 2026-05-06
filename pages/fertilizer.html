@@ -2,124 +2,121 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fertilizer Guide | AgriHarvest</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fertilizer Guide | AgriHarvest</title>
 
-<link rel="stylesheet" href="../assets/css/fertilizer.css">
+  <link rel="stylesheet" href="../assets/css/fertilizer.css">
 
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
+  <!-- HEADER -->
+  <header class="header">
 
-  <div class="logo-text">🌾 AgriHarvest</div>
+    <!-- LOGO -->
+    <div class="logo-text">🌾 AgriHarvest</div>
 
-  <nav class="navbar" id="navbar">
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../index.html#about">About</a></li>
-      <li><a href="marketplace.html">Market</a></li>
-      <li><a href="fertilizer.html" class="active">Fertilizer</a></li>
-    </ul>
-  </nav>
+    <!-- NAV LINKS -->
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="marketplace.html">Market</a></li>
+        <li><a href="fertilizer.html">Fertilizer</a></li>
+      </ul>
+    </nav>
 
-  <!-- RIGHT SIDE (IMPORTANT) -->
-  <div class="nav-right">
+    <!-- RIGHT SIDE -->
+    <div class="nav-right">
 
-    <!-- <div class="notif" id="notifBtn">
-      🔔 <span class="badge">3</span>
-      <div class="notif-dropdown" id="notifMenu">
-        <p>🌱 New tips</p>
-        <p>💰 Market updated</p>
+      <!-- 👤 AUTH -->
+      <div id="authArea"></div>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="fertilizer">
+    <h2>🌱 Smart Fertilizer Guide</h2>
+    <p>
+      Get crop-specific fertilizer recommendations to improve yield,
+      soil health, and reduce cost.
+    </p>
+
+    <a href="../assets/data/fertilizer-guide.pdf" class="btn" download>
+      📄 Download Guide
+    </a>
+  </section>
+
+  <!-- ===== AI UPLOAD SECTION ===== -->
+
+  <section class="ai-section">
+
+    <h2>🤖 AI Crop Advisor</h2>
+    <p>Ask anything about crops, soil, fertilizers…</p>
+
+    <div class="ai-chat-box">
+
+      <!-- MESSAGES -->
+      <div id="chatMessages" class="chat-messages"></div>
+
+      <!-- INPUT -->
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type your question..." />
+        <button onclick="sendMessage()" class="btn">Send</button>
       </div>
+
     </div>
 
-    <div class="cart" id="cartBtn">
-      🛒 <span id="cartCount">0</span>
+  </section>
+
+  <!-- CARDS -->
+  <section class="fertilizer-cards">
+
+    <div class="card">
+      <h3>🌾 Wheat</h3>
+      <p>NPK: 120:60:40</p>
+      <span>Apply in 3 stages</span>
     </div>
 
-    <div id="authArea"></div>
+    <div class="card">
+      <h3>🌽 Maize</h3>
+      <p>NPK: 150:75:40</p>
+      <span>Split nitrogen doses</span>
+    </div>
 
-  </div> -->
+    <div class="card">
+      <h3>🌿 Rice</h3>
+      <p>NPK: 100:50:50</p>
+      <span>Water-based application</span>
+    </div>
 
-  <div class="menu-toggle" id="menuToggle">☰</div>
+    <div class="card">
+      <h3>🥔 Potato</h3>
+      <p>NPK: 180:80:100</p>
+      <span>High potassium needed</span>
+    </div>
 
-</header>
+  </section>
 
-<!-- HERO -->
-<section class="fertilizer">
-  <h2>🌱 Smart Fertilizer Guide</h2>
-  <p>
-    Get crop-specific fertilizer recommendations to improve yield,
-    soil health, and reduce cost.
-  </p>
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/auth.js" defer></script>
+  <script src="../assets/js/fertilizer.js" defer></script>
 
-  <a href="../assets/data/fertilizer-guide.pdf" class="btn" download>
-    📄 Download Guide
-  </a>
-</section>
+  <!-- js -->
+  <script src="../assets/js/fertilizer.js"></script>
 
-<!-- ===== AI UPLOAD SECTION ===== -->
-<section class="ai-section">
-
-  <h2>🤖 AI Fertilizer Advisor</h2>
-  <p>Upload your soil report or crop image to get smart recommendations</p>
-
-  <input type="file" id="fileInput" accept="image/*,.pdf">
-
-  <button class="btn" onclick="analyzeFile()">Analyze with AI</button>
-
-  <!-- PREVIEW -->
-  <div id="preview"></div>
-
-  <!-- RESULT -->
-  <div id="aiResult" class="ai-result"></div>
-
-</section>
-
-<!-- CARDS -->
-<section class="fertilizer-cards">
-
-  <div class="card">
-    <h3>🌾 Wheat</h3>
-    <p>NPK: 120:60:40</p>
-    <span>Apply in 3 stages</span>
-  </div>
-
-  <div class="card">
-    <h3>🌽 Maize</h3>
-    <p>NPK: 150:75:40</p>
-    <span>Split nitrogen doses</span>
-  </div>
-
-  <div class="card">
-    <h3>🌿 Rice</h3>
-    <p>NPK: 100:50:50</p>
-    <span>Water-based application</span>
-  </div>
-
-  <div class="card">
-    <h3>🥔 Potato</h3>
-    <p>NPK: 180:80:100</p>
-    <span>High potassium needed</span>
-  </div>
-
-</section>
-
-<script src="../assets/js/main.js" defer></script>
-<script src="../assets/js/auth.js" defer></script>
-<script src="../assets/js/fertilizer.js" defer></script>
-
-<!-- js -->
-<script src="../assets/js/fertilizer.js"></script>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <p>© 2025 AgriHarvest | Smart Farming Powered by AI</p>
-</footer>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 AgriHarvest | Smart Farming Powered by AI</p>
+  </footer>
 
 </body>
+
 </html>
